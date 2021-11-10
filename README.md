@@ -1,7 +1,6 @@
 # UserGuide_CS2101
 Copy of user guide for CS2101
 
-// TESTTESTETST
 # Mint User Guide v2.1
 
 ## Introduction
@@ -256,9 +255,9 @@ Format: `addR [income] n/NAME a/AMOUNT i/INTERVAL [d/DATE] [c/CATEGORY_NUMBER] [
 
 Examples:
 
-- `addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
-- `addR a/5 n/phone bills c/4 i/year e/2023-10-26`
-- `addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
+- Add phone bills that recurs every month for $90 under the "HOUSEHOLD" category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
+- Add phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD" category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
+- Add salary as an income, that recurs every month, at $10,000 under the "OTHERS" category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
 
 Examples and Expected Output
 
@@ -266,7 +265,7 @@ Examples and Expected Output
 addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH
 I've added: Expense | HOUSEHOLD | 2021-12-03 | phone bills |-$90.00 | MONTH | Forever :D
 addR a/5 n/phone bills c/4 i/year e/2023-10-26
-I've added: Expense | APPAREL | 2021-10-29 | phone bills |-$5.00 | YEAR | 2023-10-26
+I've added: Expense | HOUSEHOLD | 2021-10-29 | phone bills |-$5.00 | YEAR | 2023-10-26
 addR income a/10000 n/salary d/2021-10-10 i/mOnTh
 I've added: Income  | OTHERS | 2021-10-10 | salary | $10,000.00 | MONTH | Forever :D
 ```
@@ -539,8 +538,8 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
 
 Examples:
 
-- `edit n/Textbook d/2012-09-21 a/15`
-- `edit n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for $15: `edit n/Textbook d/2012-09-21 a/15`
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -593,8 +592,8 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
 
 Examples:
 
-- `editR n/Textbook d/2012-09-21 a/15`
-- `editR n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at $15: `editR n/Textbook d/2012-09-21 a/15`
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
