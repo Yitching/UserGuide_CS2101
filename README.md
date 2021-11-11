@@ -311,7 +311,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 - If `YEAR` is not specified, the default will be the current year.
 - `STARTDATE(optional)` and `ENDDATE(optional)` can be any of the [acceptable date formats](#dateFormat).
 - If `STARTDATE` is specified but `ENDDATE` is not specified, the default `ENDDATE` set would be the current date.
-- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending , else the default will
+- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending order, else the default will
   sort the list in descending order.
 - In addition to the normal entries, recurring entries will also be shown on the list.
     - Depending on the above options, recurring entries will be automatically added to the entries' list according to
@@ -326,16 +326,16 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
           recurring entries, where some may not have been added to the entries' list.
         - If date options are specified correctly, the separate list will only show recurring entries that were added to
           the entries' list.
-    - For more information about why the `view` works this way, refer to [Frequently Asked Questions](#faq).
+    
 
 - Summary of modifiers for view function
 
 | Modifier | Effect | Remarks
 |--------|----------|----------|
-| `by date` | Sorts the list by date in descending order. | The default sorting order
-| `by amount` | Sorts the list by amount in descending order. |
-| `by name` | Sorts the list by name in descending order. |
-| `by cat` | Sorts the list by category in descending order. |
+| `by date` | Sorts the list by date. | The default sorting order
+| `by amount` | Sorts the list by date. |
+| `by name` | Sorts the list by date. |
+| `by cat` | Sorts the list by date. |
 | `from [STARTDATE]` | Filters for entries that are on or after the STARTDATE. |
 | `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between STARTDATE and ENDDATE, inclusive. |
 | `month [MONTH]` | Filters for entries of the specified MONTH in a year. | If the year modifier was not used, it will default to the current year. If MONTH was not specified, it will default to the current MONTH.
@@ -420,7 +420,7 @@ Expense | ENTERTAINMENT | 2021-09-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2020-02-29 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
 ```
 
-- Assume today's date is `2021-11-06`
+- *Assume today's date is `2021-11-06`*
 
 <div style="page-break-after: always;"></div>
 
@@ -440,15 +440,18 @@ Format: `delete [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER]`
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 - Dummy strings between `delete` and the first tag will not affect the program.
 
-Examples:
+Examples and Expected Outputs:
 
-- `delete n/Textbook d/2012-09-21 a/15`
-- `delete n/Cheese Burger d/2020-04-20 a/4.2`
+- Deleting a textbook that you bought on 21st September 2012 that costs $15: `delete n/Textbook d/2012-09-21 a/15`.
+- Your query matches 1 `Expense` or `Income` in the list.
+```
+delete n/Textbook d/2012-09-21
+Is this what you want to delete?
+    Expense  | OTHERS | 2012-09-21 | Textbook | $40.00
+Type "y" if yes. Type "n" if not.
 
-Examples and Expected Output:
-
-- If user query only matches 1 `Expense` or `Income` in the expense list
-
+```
+- The entry shown is what you want to delete: `y`.
 ```
 delete n/Textbook d/2012-09-21
 Is this what you want to delete?
@@ -457,11 +460,21 @@ Type "y" if yes. Type "n" if not.
 y
 I have deleted: Expense  | OTHERS | 2012-09-21 | Textbook | $40.00
 ```
+<br>
 
-<div style="page-break-after: always;"></div>
+- Deleting a cheeseburger that you ate on 20th April 2020 that costs $4.2: `delete n/Cheese Burger d/2020-04-20 a/4.2`.
 
-- If user query matches more than 1 `Expense` or `Income` in the list
+- Your query matches more than 1 `Expense` or `Income` in the list.
 
+```
+delete n/Cheese Burger d/2020-04-20 a/4.2
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |     Name      | Amount | Every |   Until
+   1   | Income  |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+   2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+Enter the index of the item you want to delete. To cancel, type "cancel"
+```
+- The first entry shown is what you want to delete. Index is 1: `1`.
 ```
 delete n/Cheese Burger d/2020-04-20 a/4.2
 Here is the list of items containing the keyword.
@@ -486,7 +499,7 @@ Format: `deleteR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [
     - If there is more than 1 `RecurringExpense` or `RecurringIncome` matching the query,the program will return a list
       for the user to choose from. The user would then have to confirm the deletion of the entry.
     - If there is 1  `RecurringExpense` or `RecurringIncome` matching the query, the program will prompt the user to
-      confirm the deletion of that  `Expense` or `Income` .
+      confirm the deletion of that  `RecurringExpense` or `RecurringIncome` .
 - Deletes an entry of the specified `NAME`, `DATE`, `AMOUNT`, or `CATEGORY_NUMBER`
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 
@@ -497,7 +510,16 @@ Examples:
 
 Examples and Expected Output:
 
-- If user query only matches 1 `RecurringExpense` or `RecurringIncome` in the expense list
+- Deleting a Netflix subscription: `deleteR n/Netflix`.
+- Your query matches 1 `RecurringExpense` or `RecurringIncome` in the list.
+
+```
+deleteR n/Netflix
+Is this what you want to delete?
+    Expense | OTHERS | 2021-10-28 | Netflix |-$90.00 | YEAR | Forever :D
+Type "y" if yes. Type "n" if not.
+```
+- The entry shown is what you want to delete: `y`.
 
 ```
 deleteR n/Netflix
@@ -507,9 +529,22 @@ Type "y" if yes. Type "n" if not.
 y
 I have deleted: Expense | OTHERS | 2021-10-28 | Netflix |-$90.00 | YEAR | Forever :D
 ```
+<br>
 
-- If user query matches more than 1 `RecurringExpense` or `RecurringIncome` in the list
+- Deleting a monthly recurring entry: `deleteR i/mOnTh`.
 
+- Your query matches more than 1 `RecurringExpense` or `RecurringIncome` in the list.
+
+```
+deleteR i/mOnTh
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |  Name   | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2021-10-28 | Netflix |-$40.00 | MONTH | Forever :D
+   2   | Expense |  OTHERS  | 2021-10-28 |   Viu   |-$30.00 | MONTH | Forever :D
+Enter the index of the item you want to delete. To cancel, type "cancel"
+```
+
+- The first recurring entry shown is what you want to delete. Index is 1: `1`.
 ```
 deleteR i/mOnTh
 Here is the list of items containing the keyword.
@@ -786,23 +821,4 @@ Please refresh page if table is not rendered properly.
   `DATE` as `2021-11-04` and `END_DATE` as `2021-11-15`)?
     - This is so that users can use the `END_DATE` as a reminder to themselves to cancel subscriptions or be aware of
       the end of receiving fixed incomes.
-
-- Why does simply entering `view` without date options show all the normal entries for recurring entries only up to
-  today's date in the entries' list?
-    - This is because if users do not specify the `END_DATE`, default is set to `2200-12-31`(forever). Thus, if we show
-      all the recurring entries that are added, recurring entries with `END_DATE` set as forever will show all recurring
-      until `2200-12-31` which would hinder the users from viewing important, recent entries.
-
-- Why does simply entering `view` show recurring entries that are not added to the entries' list still shown in the
-  separate list, but specifying filter options like `view month 12` only show entries that are added to the entries'
-  list in the separate list?
-    - This is because users may have recurring entries that start in the future. Only entering `view` without filter
-      options show recurring entries up to today's date. Thus, if only the entries that are added to the entries' list
-      are shown in the separate list, recurring entries that have not started yet would never be shown in the separate
-      list, and users will not be able to see those that start in the future unless they specify to view those
-      dates. `view` is meant to be a simple tool to view all entries, including recurring entries.
-
-![](images/FAQrecurring.PNG)
-
-This image explains what the entries' list and separate list indicate.
   
