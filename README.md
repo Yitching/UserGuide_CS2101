@@ -19,9 +19,9 @@ finances. We want to help you get started in your journey to financial freedom.
 The purpose of this guide is to help you to navigate the app and use all of its functionalities through
 step-by-step-instructions.
 
-- If you are a new user, click [here](#quickStart) to get started.
+- If you are a new user, click [here](#quickStart) to get started!
 
-- If you want to find out more about our features, click [here](#features).
+- If you want to find out more about our features, click [here](#features)!
 
 - If you are unsure of where to start, you can refer to our [table of contents](#tableOfContent).
 
@@ -311,7 +311,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 - If `YEAR` is not specified, the default will be the current year.
 - `STARTDATE(optional)` and `ENDDATE(optional)` can be any of the [acceptable date formats](#dateFormat).
 - If `STARTDATE` is specified but `ENDDATE` is not specified, the default `ENDDATE` set would be the current date.
-- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending , else the default will
+- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending order, else the default will
   sort the list in descending order.
 - In addition to the normal entries, recurring entries will also be shown on the list.
     - Depending on the above options, recurring entries will be automatically added to the entries' list according to
@@ -420,7 +420,7 @@ Expense | ENTERTAINMENT | 2021-09-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2020-02-29 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
 ```
 
-- Assume today's date is `2021-11-06`
+- *Assume today's date is `2021-11-06`*
 
 <div style="page-break-after: always;"></div>
 
