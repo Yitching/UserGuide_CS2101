@@ -72,7 +72,7 @@ step-by-step-instructions.
 ### <a name="runningTheProgramme"></a>Running the Programme
 
 1. Open your desired Command Line Interface and ensure that you are in the directory where you saved the folder. If you
-   are new to git, click [here](#changingTheDirectory) to see how you can change the directory.
+   are new to the Command Line Interface, click [here](#changingTheDirectory) to see how you can change the directory.
 2. Once you ensured you are in the correct directory, run the programme using the command `java -jar tp.jar`.
 3. To test if the programme is working, type a command and press Enter to execute it. e.g., typing `help` and pressing
    Enter will display the list of commands to help you use our application.
@@ -93,7 +93,7 @@ Refer to the [Features Section](#features) below for details of each comm
 1. Right-click on your tp.jar file and select Properties. There would be a pop up with all the information.
 2. Look for the Location and copy the entire string.
 3. Go back to your Command Line Interface and enter the command `cd [paste what you copied here]`
-4. Mint is now at your service!
+4. Now you are in the directory of your tp.jar file.
 
 <div style="page-break-after: always;"></div>
 
@@ -328,17 +328,24 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
           the entries' list.
     - For more information about why the `view` works this way, refer to [Frequently Asked Questions](#faq).
 
+- Summary of modifiers for view function
+| Modifier | Effect | Remarks
+|--------|----------|----------|
+| `by date` | Sorts the list by date. | The default sorting order
+| `by amount` | Sorts the list by date. |
+| `by name` | Sorts the list by date. |
+| `by cat` | Sorts the list by date. |
+| `from [STARTDATE]` | Filters for entries that are on or after the STARTDATE. |
+| `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between STARTDATE and ENDDATE, inclusive. |
+| `month [MONTH]` | Filters for entries of the specified MONTH in a year. | If the year modifier was not used, it will default to the current year. If MONTH was not specified, it will default to the current MONTH.
+| `year [YEAR]` | Filters for entries of the specified YEAR. | If YEAR was not specified, it will default to the current YEAR.
+| `up/ascending` | Sorts the list in ascending order instead of descending order. |
+
 <div style="page-break-after: always;"></div>
 
-Examples:
-Assume today's date is `2021-11-06`
-
-- `view`
-- `view income`
-- `view month 4 year 2021`
-- `view from 2022-01-13 2022-03-15 by amount ascending`
-
 Examples and Expected Output:
+
+- View all your entries: `view`
 
 ```
 view
@@ -363,6 +370,8 @@ Income  |   ALLOWANCE    | 2021-08-31 |      Allowance      | $1.00   | MONTH | 
 Expense |     OTHERS     | 2020-02-29 |      Nintendo       |-$19.99  | YEAR  | 2023-01-15
 ```
 
+- View all your income entries: `view income`
+
 ```
 view income
 Here is the list of your entries:
@@ -378,6 +387,8 @@ Income  | ALLOWANCE | 2021-08-31 |      Allowance      | $1.00   | MONTH | 2023-
 
 <div style="page-break-after: always;"></div>
 
+- View all entries in Apr 2021: `view month 4 year 2021`
+
 ```
 view month 4 year 2021
 For the year 2021:
@@ -388,6 +399,8 @@ Expense |   FOOD   | 2021-04-20 | Cheese burger |-$15.00 |       |
                                      Net Total: |-$15.00
 Here is the list of recurring entries added to the above list:
 ```
+
+- View all entries from 13 Jan 2022 to 15 Mar 2022, sorted by amount in ascending order: `view from 2022-01-13 2022-03-15 by amount ascending`
 
 ```
 view from 2022-01-13 2022-03-15 by amount ascending
@@ -405,6 +418,8 @@ Income  |   ALLOWANCE   | 2021-08-31 | Allowance | $1.00  | MONTH | 2023-08-31
 Expense | ENTERTAINMENT | 2021-09-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2020-02-29 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
 ```
+
+- Assume today's date is `2021-11-06`
 
 <div style="page-break-after: always;"></div>
 
@@ -519,12 +534,9 @@ Format: `deleteAll [normal] [recurring]`
 - `normal` and `recurring` can be substituted for `n` and `r` respectively as a shortcut.
 - `deleteall` also accepted as a command.
 
-Examples:
-
-- `deleteAll`
-- `deleteall normal`
-
 Examples and Expected Output:
+
+- Deleting all entries: `deleteAll`
 
 ```
 deleteAll
@@ -533,6 +545,8 @@ Type "y" if yes. Type "n" if not.
 y
 All entries successfully deleted.
 ```
+
+- Deleting all normal entries only: `deleteall normal`
 
 ```
 deleteall normal
