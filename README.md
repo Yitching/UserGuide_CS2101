@@ -1,4 +1,5 @@
 # UserGuide_CS2101
+
 Copy of user guide for CS2101
 
 # Mint User Guide v2.1
@@ -8,15 +9,25 @@ Copy of user guide for CS2101
 Mint is an all-in-one money managing app that helps you track your daily expenses, set budgets and long term financial
 goals(coming soon). It is optimized for use via a Command Line Interface (CLI).
 
-As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
-finances.
+At Mint, we are all about enhancing your user experience. Mint allows you to efficiently key in entries with intuitive
+commands. You will also have access to tools such as budget warning and a variety of view options to help you better
+track your finances.
 
-Using this guide, you will be able to navigate the app and use all of its functionalities through
+As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
+finances. We want to help you get started in your journey to financial freedom.
+
+The purpose of this guide is to help you to navigate the app and use all of its functionalities through
 step-by-step-instructions.
+
+- If you are a new user, click [here](#quickStart) to get started!
+
+- If you want to find out more about our features, click [here](#features)!
+
+- If you are unsure of where to start, you can refer to our [table of contents](#tableOfContent).
 
 <div style="page-break-after: always;"></div>
 
-## Table of Contents
+## <a name="tableOfContent"></a>Table of Contents
 
 - [Quick Start](#quickStart)
     - [Setting Up](#settingUp)
@@ -226,17 +237,22 @@ Format: `add [income] n/NAME a/AMOUNT [d/DATE] [c/CATEGORY_NUMBER]`
 Examples and Expected Output:
 
 - Adding a textbook that costs $15: `add n/textbook a/15`
+
 ```
 add n/Textbook a/15
 I've added: Expense  | OTHERS | 2021-10-28 | Textbook | $15.00
 ```
+
 - Adding a cheeseburger that costs $4.20 that I had on 20th April 2021 and categorize it under "
   Food": `add n/Cheese Burger a/4.2 d/2021-04-20 c/0`
+
 ```
 add n/Cheese burger a/4.2 d/2021-04-20 c/0
 I've added: Expense  | FOOD | 2021-04-20 | Cheese burger | $4.20
 ```
+
 - Adding the income I made from sales, amounting to $34 `add income n/Sales a/34 d/2021-02-19 c/1`
+
 ```
 add income n/Sales a/34 d/2021-02-19 c/1
 I've added: Income  | WAGES | 2021-02-19 | Sales | $34.00
@@ -256,17 +272,25 @@ Format: `addR [income] n/NAME a/AMOUNT i/INTERVAL [d/DATE] [c/CATEGORY_NUMBER] [
 
 Examples and Expected Output:
 
-- Add phone bills that recurs every month for $90 under the "HOUSEHOLD" category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
+- Add phone bills that recurs every month for $90 under the "HOUSEHOLD"
+  category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
+
 ```
 addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH
 I've added: Expense | HOUSEHOLD | 2021-12-03 | phone bills |-$90.00 | MONTH | Forever :D
 ```
-- Add phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD" category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
+
+- Add phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD"
+  category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
+
 ```
 addR a/5 n/phone bills c/4 i/year e/2023-10-26
 I've added: Expense | HOUSEHOLD | 2021-10-29 | phone bills |-$5.00 | YEAR | 2023-10-26
 ```
-- Add salary as an income, that recurs every month, at $10,000 under the "OTHERS" category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
+
+- Add salary as an income, that recurs every month, at $10,000 under the "OTHERS"
+  category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
+
 ```
 addR income a/10000 n/salary d/2021-10-10 i/mOnTh
 I've added: Income  | OTHERS | 2021-10-10 | salary | $10,000.00 | MONTH | Forever :D
@@ -540,8 +564,10 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
 
 Examples:
 
-- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for $15: `edit n/Textbook d/2012-09-21 a/15`
-- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
+  $15: `edit n/Textbook d/2012-09-21 a/15`
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
+  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -594,8 +620,10 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
 
 Examples:
 
-- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at $15: `editR n/Textbook d/2012-09-21 a/15`
-- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
+  $15: `editR n/Textbook d/2012-09-21 a/15`
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
+  $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -654,19 +682,20 @@ c/7 OTHERS         | c/7 OTHERS
 
 ## <a name="set"></a>Setting budget: `set`
 
-Set budget for individual categories>
+Set budget for individual categories.
 
-Format: `set c/CATEGORY_NUMBER a/AMOUNT`
+Format: `set c/CATEGORY_NUMBER a/AMOUNT`.
 
 - `set` takes in 2 mandatory fields, `c/CATEGORY_NUMBER` and `a/AMOUNT`.
 - `AMOUNT` is in dollars. Numbers after the decimal point are in cents. Eg. 4.50 is $4.50.
 - `CATEGORY_NUMBER` is any integer from 0 to 7. Please refer to the [available categories](#categoryList).
 
-Example: If you want to set budget for "FOOD" to $100, type `set c/0 a/100`, as `c/0` correspond to "FOOD".
+Example and Expected Output:
 
-Expected Output:
+- If you want to set budget for "FOOD" to $100: `set c/0 a/100`, as `0` is the category number for "FOOD"
 
 ```
+set c/0 a/100
 Budget for FOOD set to $100.00
 ```
 
@@ -674,13 +703,14 @@ Budget for FOOD set to $100.00
 
 ## <a name="budget"></a>View monthly budget: `budget`
 
-View monthly spending and budget for current month
+View your monthly spending and budget for the current month.
 
 Format: `budget`
 
-Expected Output:
+Example and Expected Output:
 
 ```
+budget
 Here is the budget for NOVEMBER 2021
    Category    | Amount | Budget  | Percentage
      FOOD      |  $5.00 / $100.00 | 5.00%
