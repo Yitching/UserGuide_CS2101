@@ -1,4 +1,5 @@
 # UserGuide_CS2101
+
 Copy of user guide for CS2101
 
 # Mint User Guide v2.1
@@ -8,15 +9,25 @@ Copy of user guide for CS2101
 Mint is an all-in-one money managing app that helps you track your daily expenses, set budgets and long term financial
 goals(coming soon). It is optimized for use via a Command Line Interface (CLI).
 
-As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
-finances.
+At Mint, we are all about enhancing your user experience. Mint allows you to efficiently key in entries with intuitive
+commands. You will also have access to tools such as budget warning and a variety of view options to help you better
+track your finances.
 
-Using this guide, you will be able to navigate the app and use all of its functionalities through
+As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
+finances. We want to help you get started in your journey to financial freedom.
+
+The purpose of this guide is to help you to navigate the app and use all of its functionalities through
 step-by-step-instructions.
+
+- If you are a new user, click [here](#quickStart) to get started!
+
+- If you want to find out more about our features, click [here](#features)!
+
+- If you are unsure of where to start, you can refer to our [table of contents](#tableOfContent).
 
 <div style="page-break-after: always;"></div>
 
-## Table of Contents
+## <a name="tableOfContent"></a>Table of Contents
 
 - [Quick Start](#quickStart)
     - [Setting Up](#settingUp)
@@ -600,8 +611,10 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
 
 Examples:
 
-- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for $15: `edit n/Textbook d/2012-09-21 a/15`
-- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
+  $15: `edit n/Textbook d/2012-09-21 a/15`
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
+  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -654,8 +667,10 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
 
 Examples:
 
-- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at $15: `editR n/Textbook d/2012-09-21 a/15`
-- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
+  $15: `editR n/Textbook d/2012-09-21 a/15`
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
+  $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -714,19 +729,20 @@ c/7 OTHERS         | c/7 OTHERS
 
 ## <a name="set"></a>Setting budget: `set`
 
-Set budget for individual categories>
+Set budget for individual categories.
 
-Format: `set c/CATEGORY_NUMBER a/AMOUNT`
+Format: `set c/CATEGORY_NUMBER a/AMOUNT`.
 
 - `set` takes in 2 mandatory fields, `c/CATEGORY_NUMBER` and `a/AMOUNT`.
 - `AMOUNT` is in dollars. Numbers after the decimal point are in cents. Eg. 4.50 is $4.50.
 - `CATEGORY_NUMBER` is any integer from 0 to 7. Please refer to the [available categories](#categoryList).
 
-Example: If you want to set budget for "FOOD" to $100, type `set c/0 a/100`, as `c/0` correspond to "FOOD".
+Example and Expected Output:
 
-Expected Output:
+- If you want to set budget for "FOOD" to $100: `set c/0 a/100`, as `0` is the category number for "FOOD"
 
 ```
+set c/0 a/100
 Budget for FOOD set to $100.00
 ```
 
@@ -734,13 +750,14 @@ Budget for FOOD set to $100.00
 
 ## <a name="budget"></a>View monthly budget: `budget`
 
-View monthly spending and budget for current month
+View your monthly spending and budget for the current month.
 
 Format: `budget`
 
-Expected Output:
+Example and Expected Output:
 
 ```
+budget
 Here is the budget for NOVEMBER 2021
    Category    | Amount | Budget  | Percentage
      FOOD      |  $5.00 / $100.00 | 5.00%
