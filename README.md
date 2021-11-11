@@ -1,7 +1,3 @@
-# UserGuide_CS2101
-
-Copy of user guide for CS2101
-
 # Mint User Guide v2.1
 
 ## Introduction
@@ -187,8 +183,6 @@ Note:
 
 <div style="page-break-after: always;"></div>
 
----
-
 ### <a name="recurringNote"></a> Notes about recurring entries
 
 - Recurring entries will be recurred on the same day as the `DATE` if the interval is `MONTH`; same day and month if the
@@ -245,7 +239,7 @@ I've added: Expense  | OTHERS | 2021-10-28 | Textbook | $15.00
 
 - Adding a cheeseburger that costs $4.20 that you had on 20th April 2021 and categorize it under "
   Food": `add n/Cheese Burger a/4.2 d/2021-04-20 c/0`
-  
+
 ```
 add n/Cheese burger a/4.2 d/2021-04-20 c/0
 I've added: Expense  | FOOD | 2021-04-20 | Cheese burger | $4.20
@@ -272,21 +266,24 @@ Format: `addR [income] n/NAME a/AMOUNT i/INTERVAL [d/DATE] [c/CATEGORY_NUMBER] [
 
 Examples and Expected Output:
 
-- Add your phone bills that recurs every month for $90 under the "HOUSEHOLD" category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
+- Add your phone bills that recurs every month for $90 under the "HOUSEHOLD"
+  category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
 
 ```
 addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH
 I've added: Expense | HOUSEHOLD | 2021-12-03 | phone bills |-$90.00 | MONTH | Forever :D
 ```
 
-- Add your phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD" category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
+- Add your phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD"
+  category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
 
 ```
 addR a/5 n/phone bills c/4 i/year e/2023-10-26
 I've added: Expense | HOUSEHOLD | 2021-10-29 | phone bills |-$5.00 | YEAR | 2023-10-26
 ```
 
-- Add your salary as an income, that recurs every month, at $10,000 under the "OTHERS" category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
+- Add your salary as an income, that recurs every month, at $10,000 under the "OTHERS"
+  category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
 
 ```
 addR income a/10000 n/salary d/2021-10-10 i/mOnTh
@@ -302,44 +299,20 @@ Shows a list of all the entries, each with the associated `NAME`, `CATEGORY_NUMB
 
 Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from STARTDATE [ENDDATE]] [up/ascending]`
 
-- Views all entries with the specified `MONTH`, `YEAR`, from `STARTDATE` to `ENDDATE`, sorted by `SORTTYPE`.
-- `[income](optional)` and `[expense](optional)` if appended, only shows the entries of the corresponding type.
-- `SORTTYPE` can be any of the following types: `name`, `date`, `amount`, `category`
-- `MONTH(optional)` can be any number from 1 to 12.
-- If `MONTH` is not specified, the default will be the current month.
-- `YEAR(optional)` can be any 4-digit number from 2000 to 2200.
-- If `YEAR` is not specified, the default will be the current year.
-- `STARTDATE(optional)` and `ENDDATE(optional)` can be any of the [acceptable date formats](#dateFormat).
-- If `STARTDATE` is specified but `ENDDATE` is not specified, the default `ENDDATE` set would be the current date.
-- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending order, else the default will
-  sort the list in descending order.
-- In addition to the normal entries, recurring entries will also be shown on the list.
-    - Depending on the above options, recurring entries will be automatically added to the entries' list according to
-      the recurring period.
-    - Refer to [notes about recurring entries](#recurringNote) for more information on what criteria the automatic
-      addition will be based on.
-    - If no date options are specified correctly, it will default to viewing recurring entries up to current date.
-    - There will be a separate list at the bottom to show the original recurring entries.
-        - If neither date options nor `[expense]`/`[income]` options are specified, the separate list will show all
-          recurring entries.
-        - If `[expense]`/`[income]` options are specified but not date options, the separate list will show applicable
-          recurring entries, where some may not have been added to the entries' list.
-        - If date options are specified correctly, the separate list will only show recurring entries that were added to
-          the entries' list.
-    
-
 - Summary of modifiers for view function
 
 | Modifier | Effect | Remarks
 |--------|----------|----------|
-| `by date` | Sorts the list by date. | The default sorting order
-| `by amount` | Sorts the list by date. |
-| `by name` | Sorts the list by date. |
-| `by cat` | Sorts the list by date. |
-| `from [STARTDATE]` | Filters for entries that are on or after the STARTDATE. |
-| `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between STARTDATE and ENDDATE, inclusive. |
-| `month [MONTH]` | Filters for entries of the specified MONTH in a year. | If the year modifier was not used, it will default to the current year. If MONTH was not specified, it will default to the current MONTH.
-| `year [YEAR]` | Filters for entries of the specified YEAR. | If YEAR was not specified, it will default to the current YEAR.
+| `by date` | Sorts the list by date in descending order. | The default sorting order
+| `by amount` | Sorts the list by amount in descending order. |
+| `by name` | Sorts the list by name in descending order. |
+| `by cat` | Sorts the list by category in descending order. |
+| `income` | Filters for income entries only |
+| `expense` | Filters for expense entries only |
+| `from [STARTDATE]` | Filters for entries that are on or after the `STARTDATE`. | `STARTDATE` and `ENDDATE` can be any of the [acceptable date formats](#dateFormat).
+| `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between `STARTDATE` and `ENDDATE`, inclusive. |
+| `month [MONTH]` | Filters for entries of the specified `MONTH` in a year. | `MONTH` should be the numerical month value from 1 to 12. If the year modifier was not used, it will default to the current year. If `MONTH` was not specified, it will default to the current month.
+| `year [YEAR]` | Filters for entries of the specified `YEAR`. | `YEAR` should be the numerical year value from 2000 to 2200. If `YEAR` was not specified, it will default to the current year.
 | `up/ascending` | Sorts the list in ascending order instead of descending order. |
 
 <div style="page-break-after: always;"></div>
@@ -355,20 +328,14 @@ Here is the list of your entries:
 Income  |      GIFT      | 2021-12-25 | Christmas allowance | $200.00 |       |
 Expense | TRANSPORTATION | 2021-11-04 |        Taxi         |-$6.99   |       |
 Income  |   ALLOWANCE    | 2021-10-31 |      Allowance      | $1.00   | MONTH | 2023-08-31
-Expense | ENTERTAINMENT  | 2021-10-21 |       Netflix       |-$12.00  | MONTH | 2030-02-20
 Expense | ENTERTAINMENT  | 2021-10-04 |        Movie        |-$22.44  |       |
 Income  |   ALLOWANCE    | 2021-09-30 |      Allowance      | $1.00   | MONTH | 2023-08-31
-Expense | ENTERTAINMENT  | 2021-09-21 |       Netflix       |-$12.00  | MONTH | 2030-02-20
 Income  |   ALLOWANCE    | 2021-08-31 |      Allowance      | $1.00   | MONTH | 2023-08-31
 Expense |      FOOD      | 2021-04-20 |    Cheese burger    |-$15.00  |       |
-Expense |     OTHERS     | 2021-02-28 |      Nintendo       |-$19.99  | YEAR  | 2023-01-15
-Expense |     OTHERS     | 2020-02-29 |      Nintendo       |-$19.99  | YEAR  | 2023-01-15
-                                                 Net Total: | $94.59
+                                                 Net Total: | $158.57
 Here is the list of all recurring entries, where some were added to the above list:
 Expense |     OTHERS     | 2022-01-01 |      New year       |-$100.00 | YEAR  | Forever :D
-Expense | ENTERTAINMENT  | 2021-09-21 |       Netflix       |-$12.00  | MONTH | 2030-02-20
 Income  |   ALLOWANCE    | 2021-08-31 |      Allowance      | $1.00   | MONTH | 2023-08-31
-Expense |     OTHERS     | 2020-02-29 |      Nintendo       |-$19.99  | YEAR  | 2023-01-15
 ```
 
 - View all your income entries: `view income`
@@ -401,7 +368,8 @@ Expense |   FOOD   | 2021-04-20 | Cheese burger |-$15.00 |       |
 Here is the list of recurring entries added to the above list:
 ```
 
-- View all entries from 13th January 2022 to 15th March 2022, sorted by amount in ascending order: `view from 2022-01-13 2022-03-15 by amount ascending`
+- View all entries from 13th January 2022 to 15th March 2022, sorted by amount in ascending
+  order: `view from 2022-01-13 2022-03-15 by amount ascending`
 
 ```
 view from 2022-01-13 2022-03-15 by amount ascending
@@ -410,13 +378,10 @@ Since 2022-01-13 to 2022-03-15:
   Type  |   Category    |    Date    |   Name    | Amount | Every |   Until
 Income  |   ALLOWANCE   | 2022-01-31 | Allowance | $1.00  | MONTH | 2023-08-31
 Income  |   ALLOWANCE   | 2022-02-28 | Allowance | $1.00  | MONTH | 2023-08-31
-Expense | ENTERTAINMENT | 2022-01-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
-Expense | ENTERTAINMENT | 2022-02-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2022-02-28 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
-                                      Net Total: |-$41.99
+                                      Net Total: |-$17.99
 Here is the list of recurring entries added to the above list:
 Income  |   ALLOWANCE   | 2021-08-31 | Allowance | $1.00  | MONTH | 2023-08-31
-Expense | ENTERTAINMENT | 2021-09-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2020-02-29 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
 ```
 
@@ -444,6 +409,7 @@ Examples and Expected Outputs:
 
 - Deleting a textbook that you bought on 21st September 2012 that costs $15: `delete n/Textbook d/2012-09-21 a/15`.
 - Your query matches 1 `Expense` or `Income` in the list.
+
 ```
 delete n/Textbook d/2012-09-21
 Is this what you want to delete?
@@ -451,7 +417,9 @@ Is this what you want to delete?
 Type "y" if yes. Type "n" if not.
 
 ```
+
 - The entry shown is what you want to delete: `y`.
+
 ```
 delete n/Textbook d/2012-09-21
 Is this what you want to delete?
@@ -460,6 +428,7 @@ Type "y" if yes. Type "n" if not.
 y
 I have deleted: Expense  | OTHERS | 2012-09-21 | Textbook | $40.00
 ```
+
 <br>
 
 - Deleting a cheeseburger that you ate on 20th April 2020 that costs $4.2: `delete n/Cheese Burger d/2020-04-20 a/4.2`.
@@ -474,7 +443,9 @@ Here is the list of items containing the keyword.
    2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
 Enter the index of the item you want to delete. To cancel, type "cancel"
 ```
+
 - The first entry shown is what you want to delete. Index is 1: `1`.
+
 ```
 delete n/Cheese Burger d/2020-04-20 a/4.2
 Here is the list of items containing the keyword.
@@ -519,6 +490,7 @@ Is this what you want to delete?
     Expense | OTHERS | 2021-10-28 | Netflix |-$90.00 | YEAR | Forever :D
 Type "y" if yes. Type "n" if not.
 ```
+
 - The entry shown is what you want to delete: `y`.
 
 ```
@@ -529,6 +501,7 @@ Type "y" if yes. Type "n" if not.
 y
 I have deleted: Expense | OTHERS | 2021-10-28 | Netflix |-$90.00 | YEAR | Forever :D
 ```
+
 <br>
 
 - Deleting a monthly recurring entry: `deleteR i/mOnTh`.
@@ -545,6 +518,7 @@ Enter the index of the item you want to delete. To cancel, type "cancel"
 ```
 
 - The first recurring entry shown is what you want to delete. Index is 1: `1`.
+
 ```
 deleteR i/mOnTh
 Here is the list of items containing the keyword.
@@ -609,16 +583,30 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
       choose from. The user would then have to confirm if they wish to edit the entry.
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 
-Examples:
-
-- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
-  $15: `edit n/Textbook d/2012-09-21 a/15`
-- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
-  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
-
 Examples and Expected Output:
 
-- If user query only matches 1 `Expense` or `Income` in the expense list
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
+  $15: `edit n/Textbook d/2012-09-21 a/15`.
+- Your query matches 1 `Expense` or `Income` in the list.
+
+```
+edit n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense  | OTHERS | 2012-09-21 | Textbook | $15.00
+Type "y" if yes. Type "n" if not.
+```
+
+- The entry shown is what you want to edit: `y`.
+
+```
+edit n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+    Expense  | OTHERS | 2012-09-21 | Textbook | $15.00
+Type "y" if yes. Type "n" if not.
+y
+```
+
+- The field you wish to edit is the amount such that it is $14 instead of $15: `a/14`.
 
 ```
 edit n/Textbook d/2012-09-21 a/15
@@ -631,9 +619,34 @@ a/14
 Got it! I will update the fields accordingly!
 ```
 
-<div style="page-break-after: always;"></div>
+<br>
 
-- If user query matches more than 1 `Expense` or `Income` in the list
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
+  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`.
+- Your query matches more than 1 `Expense` or `Income` in the list.
+
+```
+edit n/Cheese Burger d/2020-04-20 a/4.2
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |     Name      | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+   2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+Enter the index of the item you want to edit. To cancel, type "cancel"
+```
+
+- The first entry shown is what you want to edit. Index is 1: `1`.
+
+```
+edit n/Cheese Burger d/2020-04-20 a/4.2
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |     Name      | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+   2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+Enter the index of the item you want to edit. To cancel, type "cancel"
+1
+```
+
+- The field you wish to edit is the category such that it becomes 'FOOD' instead of 'OTHERS': `c/0`.
 
 ```
 edit n/Cheese Burger d/2020-04-20 a/4.2
@@ -644,7 +657,7 @@ Here is the list of items containing the keyword.
 Enter the index of the item you want to edit. To cancel, type "cancel"
 1
 What would you like to edit?
-c/7
+c/0
 Got it! I will update the fields accordingly!
 ```
 
@@ -656,7 +669,7 @@ Edits an existing recurring entry
 
 Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/END_DATE]`
 
-- At least one of the optional fields must be provided
+- At least one of the optional fields must be provided.
 - When editing fields, existing fields of the `Expense` or `Income` indicated by the user will be replaced.
 - Our program searches the entry that matches the fields provided by the user.
     - If there is 1 `Expense` or `Income` matching the query, the program will prompt the user to confirm if they wish
@@ -665,21 +678,35 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
       choose from. The user would then have to confirm if they wish to edit the entry.
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 
-Examples:
-
-- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
-  $15: `editR n/Textbook d/2012-09-21 a/15`
-- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
-  $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
-
 Examples and Expected Output:
 
-- If user query only matches 1 `Expense` or `Income` in the expense list
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
+  $15: `editR n/Textbook d/2012-09-21 a/15`.
+- Your query matches 1 `RecurringExpense` or `RecurringIncome` in the list.
 
 ```
 editR n/Textbook d/2012-09-21 a/15
 Is this what you want to edit?
-    Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Type "y" if yes. Type "n" if not.
+```
+
+- The entry shown is what you want to edit: `y`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Type "y" if yes. Type "n" if not.
+y
+```
+
+- The field you wish to edit is the description such that it becomes 'NETFLIX' instead of 'Textbook': `n/NETFLIX`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
 Type "y" if yes. Type "n" if not.
 y
 What would you like to edit?
@@ -687,9 +714,34 @@ n/NETFLIX
 Got it! I will update the fields accordingly!
 ```
 
-<div style="page-break-after: always;"></div>
+<br>
 
-- If user query matches more than 1 `Expense` or `Income` in the list
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
+  $4.20: `editR n/Textbook d/2012-09-21 a/15`.
+- If user query matches more than 1 `Expense` or `Income` in the list.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |   Name   | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+   2   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Enter the index of the item you want to edit. To cancel, type "cancel"
+```
+
+- The first entry shown is what you want to edit. Index is 1: `1`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |   Name   | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+   2   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Enter the index of the item you want to edit. To cancel, type "cancel"
+1
+```
+
+- The field you wish to edit is the amount such that it is $5 instead of $15: `a/5`.
 
 ```
 editR n/Textbook d/2012-09-21 a/15
@@ -735,15 +787,24 @@ Format: `set c/CATEGORY_NUMBER a/AMOUNT`.
 
 - `set` takes in 2 mandatory fields, `c/CATEGORY_NUMBER` and `a/AMOUNT`.
 - `AMOUNT` is in dollars. Numbers after the decimal point are in cents. Eg. 4.50 is $4.50.
-- `CATEGORY_NUMBER` is any integer from 0 to 7. Please refer to the [available categories](#categoryList).
+- `CATEGORY_NUMBER` can be any integer from 0 to 7. Please refer to the [available categories](#categoryList).
 
 Example and Expected Output:
 
-- If you want to set budget for "FOOD" to $100: `set c/0 a/100`, as `0` is the category number for "FOOD"
+- Set budget for "FOOD" to $100: `set c/0 a/100`
+- `c/0` is the category number for "FOOD"
 
 ```
 set c/0 a/100
 Budget for FOOD set to $100.00
+```
+
+- Set budget for "ENTERTAINMENT" to $300: `set c/1 a/300`
+- `c/1` is the category number for "ENTERTAINMENT"
+
+```
+set c/1 a/300
+Budget for ENTERTAINMENT set to $300.00
 ```
 
 <div style="page-break-after: always;"></div>
@@ -753,6 +814,10 @@ Budget for FOOD set to $100.00
 View your monthly spending and budget for the current month.
 
 Format: `budget`
+
+- Your monthly budget breakdown will be shown on the screen.
+- It shows the categories as well as its corresponding amount spent(on the left) and budget set(on the right).
+- A percentage of (amount spent / budget) will be printed
 
 Example and Expected Output:
 
