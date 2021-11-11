@@ -310,10 +310,10 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 Examples:
 Assume today's date is `2021-11-06`
 
-- `view`
-- `view income`
-- `view month 4 year 2021`
-- `view from 2022-01-13 2022-03-15 by amount ascending`
+- View all your entries: `view`
+- View all your income entries: `view income`
+- View all entries in Apr 2021: `view month 4 year 2021`
+- View all entries from 13 Jan 2022 to 15 Mar 2022, sorted by amount in ascending order: `view from 2022-01-13 2022-03-15 by amount ascending`
 
 Examples and Expected Output:
 
