@@ -609,16 +609,29 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
       choose from. The user would then have to confirm if they wish to edit the entry.
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 
-Examples:
-
-- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
-  $15: `edit n/Textbook d/2012-09-21 a/15`
-- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
-  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
-
 Examples and Expected Output:
 
-- If user query only matches 1 `Expense` or `Income` in the expense list
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for $15: `edit n/Textbook d/2012-09-21 a/15`.
+- Your query matches 1 `Expense` or `Income` in the list.
+
+```
+edit n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense  | OTHERS | 2012-09-21 | Textbook | $15.00
+Type "y" if yes. Type "n" if not.
+```
+
+- The entry shown is what you want to edit: `y`.
+
+```
+edit n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+    Expense  | OTHERS | 2012-09-21 | Textbook | $15.00
+Type "y" if yes. Type "n" if not.
+y
+```
+
+- The field you wish to edit is the amount such that it is $14 instead of $15: `a/14`.
 
 ```
 edit n/Textbook d/2012-09-21 a/15
@@ -631,9 +644,33 @@ a/14
 Got it! I will update the fields accordingly!
 ```
 
-<div style="page-break-after: always;"></div>
+<br>
 
-- If user query matches more than 1 `Expense` or `Income` in the list
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`.
+- Your query matches more than 1 `Expense` or `Income` in the list.
+
+```
+edit n/Cheese Burger d/2020-04-20 a/4.2
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |     Name      | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+   2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+Enter the index of the item you want to edit. To cancel, type "cancel"
+```
+
+- The first entry shown is what you want to edit. Index is 1: `1`.
+
+```
+edit n/Cheese Burger d/2020-04-20 a/4.2
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |     Name      | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+   2   | Expense |  OTHERS  | 2020-04-20 | Cheese Burger |-$4.20  
+Enter the index of the item you want to edit. To cancel, type "cancel"
+1
+```
+
+- The field you wish to edit is the category such that it becomes 'FOOD' instead of 'OTHERS': `c/0`.
 
 ```
 edit n/Cheese Burger d/2020-04-20 a/4.2
@@ -644,7 +681,7 @@ Here is the list of items containing the keyword.
 Enter the index of the item you want to edit. To cancel, type "cancel"
 1
 What would you like to edit?
-c/7
+c/0
 Got it! I will update the fields accordingly!
 ```
 
@@ -656,7 +693,7 @@ Edits an existing recurring entry
 
 Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/END_DATE]`
 
-- At least one of the optional fields must be provided
+- At least one of the optional fields must be provided.
 - When editing fields, existing fields of the `Expense` or `Income` indicated by the user will be replaced.
 - Our program searches the entry that matches the fields provided by the user.
     - If there is 1 `Expense` or `Income` matching the query, the program will prompt the user to confirm if they wish
@@ -665,21 +702,34 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
       choose from. The user would then have to confirm if they wish to edit the entry.
 - Refer to [acceptable tag formats](#tagFormat) for more information about tag definitions and formats.
 
-Examples:
-
-- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
-  $15: `editR n/Textbook d/2012-09-21 a/15`
-- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
-  $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
-
 Examples and Expected Output:
 
-- If user query only matches 1 `Expense` or `Income` in the expense list
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at $15: `editR n/Textbook d/2012-09-21 a/15`.
+- Your query matches 1 `RecurringExpense` or `RecurringIncome` in the list.
 
 ```
 editR n/Textbook d/2012-09-21 a/15
 Is this what you want to edit?
-    Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Type "y" if yes. Type "n" if not.
+```
+
+- The entry shown is what you want to edit: `y`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Type "y" if yes. Type "n" if not.
+y
+```
+
+- The field you wish to edit is the description such that it becomes 'NETFLIX' instead of 'Textbook': `n/NETFLIX`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Is this what you want to edit?
+Expense | OTHERS | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
 Type "y" if yes. Type "n" if not.
 y
 What would you like to edit?
@@ -687,9 +737,33 @@ n/NETFLIX
 Got it! I will update the fields accordingly!
 ```
 
-<div style="page-break-after: always;"></div>
+<br>
 
-- If user query matches more than 1 `Expense` or `Income` in the list
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at $4.20: `editR n/Textbook d/2012-09-21 a/15`.
+- If user query matches more than 1 `Expense` or `Income` in the list.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |   Name   | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+   2   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Enter the index of the item you want to edit. To cancel, type "cancel"
+```
+
+- The first entry shown is what you want to edit. Index is 1: `1`.
+
+```
+editR n/Textbook d/2012-09-21 a/15
+Here is the list of items containing the keyword.
+ Index |   Type  | Category |    Date    |   Name   | Amount | Every |   Until
+   1   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+   2   | Expense |  OTHERS  | 2012-09-21 | Textbook |-$15.00 | MONTH | Forever :D
+Enter the index of the item you want to edit. To cancel, type "cancel"
+1
+```
+
+- The field you wish to edit is the amount such that it is $5 instead of $15: `a/5`.
 
 ```
 editR n/Textbook d/2012-09-21 a/15
