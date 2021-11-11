@@ -232,7 +232,7 @@ add n/Textbook a/15
 I've added: Expense  | OTHERS | 2021-10-28 | Textbook | $15.00
 ```
 
-- Adding a cheeseburger that costs $4.20 that I had on 20th April 2021 and categorize it under "
+- Adding a cheeseburger that costs $4.20 that you had on 20th April 2021 and categorize it under "
   Food": `add n/Cheese Burger a/4.2 d/2021-04-20 c/0`
   
 ```
@@ -240,7 +240,7 @@ add n/Cheese burger a/4.2 d/2021-04-20 c/0
 I've added: Expense  | FOOD | 2021-04-20 | Cheese burger | $4.20
 ```
 
-- Adding the income I made from sales, amounting to $34 `add income n/Sales a/34 d/2021-02-19 c/1`
+- Adding the income you made from sales, amounting to $34 `add income n/Sales a/34 d/2021-02-19 c/1`
 
 ```
 add income n/Sales a/34 d/2021-02-19 c/1
@@ -261,21 +261,21 @@ Format: `addR [income] n/NAME a/AMOUNT i/INTERVAL [d/DATE] [c/CATEGORY_NUMBER] [
 
 Examples and Expected Output:
 
-- Add phone bills that recurs every month for $90 under the "HOUSEHOLD" category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
+- Add your phone bills that recurs every month for $90 under the "HOUSEHOLD" category:`addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH`
 
 ```
 addR a/90 d/2021-12-03 n/phone bills c/3 i/MONTH
 I've added: Expense | HOUSEHOLD | 2021-12-03 | phone bills |-$90.00 | MONTH | Forever :D
 ```
 
-- Add phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD" category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
+- Add your phone bills that recurs every year until 25 October 2023, for $5 under the "HOUSEHOLD" category:`addR a/5 n/phone bills c/3 i/year e/2023-10-26`
 
 ```
 addR a/5 n/phone bills c/4 i/year e/2023-10-26
 I've added: Expense | HOUSEHOLD | 2021-10-29 | phone bills |-$5.00 | YEAR | 2023-10-26
 ```
 
-- Add salary as an income, that recurs every month, at $10,000 under the "OTHERS" category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
+- Add your salary as an income, that recurs every month, at $10,000 under the "OTHERS" category:`addR income a/10000 n/salary d/2021-10-10 i/mOnTh`
 
 ```
 addR income a/10000 n/salary d/2021-10-10 i/mOnTh
