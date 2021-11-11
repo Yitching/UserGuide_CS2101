@@ -318,6 +318,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
     - For more information about why the `view` works this way, refer to [Frequently Asked Questions](#faq).
 
 - Summary of modifiers for view function
+
 | Modifier | Effect | Remarks
 |--------|----------|----------|
 | `by date` | Sorts the list by date. | The default sorting order
