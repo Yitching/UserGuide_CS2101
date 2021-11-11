@@ -315,7 +315,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 | `by cat` | Sorts the list by category in descending order. |
 | `income` | Filters for income entries only |
 | `expense` | Filters for expense entries only |
-| `from [STARTDATE]` | Filters for entries that are on or after the `STARTDATE`. `STARTDATE` and `ENDDATE` can be any of the [acceptable date formats](#dateFormat). |
+| `from [STARTDATE]` | Filters for entries that are on or after the `STARTDATE`. | `STARTDATE` and `ENDDATE` can be any of the [acceptable date formats](#dateFormat).
 | `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between `STARTDATE` and `ENDDATE`, inclusive. |
 | `month [MONTH]` | Filters for entries of the specified `MONTH` in a year. | `MONTH` should be the numerical month value from 1 to 12. If the year modifier was not used, it will default to the current year. If `MONTH` was not specified, it will default to the current month.
 | `year [YEAR]` | Filters for entries of the specified `YEAR`. | `YEAR` should be the numerical year value from 2000 to 2200. If `YEAR` was not specified, it will default to the current year.
