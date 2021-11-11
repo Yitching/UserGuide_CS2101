@@ -326,7 +326,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
           recurring entries, where some may not have been added to the entries' list.
         - If date options are specified correctly, the separate list will only show recurring entries that were added to
           the entries' list.
-    - For more information about why the `view` works this way, refer to [Frequently Asked Questions](#faq).
+    
 
 - Summary of modifiers for view function
 
@@ -815,23 +815,4 @@ Please refresh page if table is not rendered properly.
   `DATE` as `2021-11-04` and `END_DATE` as `2021-11-15`)?
     - This is so that users can use the `END_DATE` as a reminder to themselves to cancel subscriptions or be aware of
       the end of receiving fixed incomes.
-
-- Why does simply entering `view` without date options show all the normal entries for recurring entries only up to
-  today's date in the entries' list?
-    - This is because if users do not specify the `END_DATE`, default is set to `2200-12-31`(forever). Thus, if we show
-      all the recurring entries that are added, recurring entries with `END_DATE` set as forever will show all recurring
-      until `2200-12-31` which would hinder the users from viewing important, recent entries.
-
-- Why does simply entering `view` show recurring entries that are not added to the entries' list still shown in the
-  separate list, but specifying filter options like `view month 12` only show entries that are added to the entries'
-  list in the separate list?
-    - This is because users may have recurring entries that start in the future. Only entering `view` without filter
-      options show recurring entries up to today's date. Thus, if only the entries that are added to the entries' list
-      are shown in the separate list, recurring entries that have not started yet would never be shown in the separate
-      list, and users will not be able to see those that start in the future unless they specify to view those
-      dates. `view` is meant to be a simple tool to view all entries, including recurring entries.
-
-![](images/FAQrecurring.PNG)
-
-This image explains what the entries' list and separate list indicate.
   
