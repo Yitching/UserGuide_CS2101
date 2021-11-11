@@ -1,4 +1,5 @@
 # UserGuide_CS2101
+
 Copy of user guide for CS2101
 
 # Mint User Guide v2.1
@@ -8,15 +9,25 @@ Copy of user guide for CS2101
 Mint is an all-in-one money managing app that helps you track your daily expenses, set budgets and long term financial
 goals(coming soon). It is optimized for use via a Command Line Interface (CLI).
 
-As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
-finances.
+At Mint, we are all about enhancing your user experience. Mint allows you to efficiently key in entries with intuitive
+commands. You will also have access to tools such as budget warning and a variety of view options to help you better
+track your finances.
 
-Using this guide, you will be able to navigate the app and use all of its functionalities through
+As our team comprises university students, we hope that we can help fellow young adults in keeping track of their
+finances. We want to help you get started in your journey to financial freedom.
+
+The purpose of this guide is to help you to navigate the app and use all of its functionalities through
 step-by-step-instructions.
+
+- If you are a new user, click [here](#quickStart) to get started!
+
+- If you want to find out more about our features, click [here](#features)!
+
+- If you are unsure of where to start, you can refer to our [table of contents](#tableOfContent).
 
 <div style="page-break-after: always;"></div>
 
-## Table of Contents
+## <a name="tableOfContent"></a>Table of Contents
 
 - [Quick Start](#quickStart)
     - [Setting Up](#settingUp)
@@ -300,7 +311,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 - If `YEAR` is not specified, the default will be the current year.
 - `STARTDATE(optional)` and `ENDDATE(optional)` can be any of the [acceptable date formats](#dateFormat).
 - If `STARTDATE` is specified but `ENDDATE` is not specified, the default `ENDDATE` set would be the current date.
-- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending , else the default will
+- `up(optional)` or `ascending(optional)` if appended with sort, will sort the list in ascending order, else the default will
   sort the list in descending order.
 - In addition to the normal entries, recurring entries will also be shown on the list.
     - Depending on the above options, recurring entries will be automatically added to the entries' list according to
@@ -315,7 +326,7 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
           recurring entries, where some may not have been added to the entries' list.
         - If date options are specified correctly, the separate list will only show recurring entries that were added to
           the entries' list.
-    - For more information about why the `view` works this way, refer to [Frequently Asked Questions](#faq).
+    
 
 - Summary of modifiers for view function
 
@@ -409,7 +420,7 @@ Expense | ENTERTAINMENT | 2021-09-21 |  Netflix  |-$12.00 | MONTH | 2030-02-20
 Expense |    OTHERS     | 2020-02-29 | Nintendo  |-$19.99 | YEAR  | 2023-01-15
 ```
 
-- Assume today's date is `2021-11-06`
+- *Assume today's date is `2021-11-06`*
 
 <div style="page-break-after: always;"></div>
 
@@ -600,8 +611,10 @@ Format: `edit [n/NAME] [a/AMOUNT] [d/DATE] [c/CATEGORY_NUMBER]`
 
 Examples:
 
-- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for $15: `edit n/Textbook d/2012-09-21 a/15`
-- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit an entry with description of 'Textbook' recorded on 21 September 2012 for
+  $15: `edit n/Textbook d/2012-09-21 a/15`
+- Edit an entry with description of 'Cheese Burger' recorded on 20 April 2020 for
+  $4.20:`edit n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -654,8 +667,10 @@ Format: `editR [n/NAME] [d/DATE] [a/AMOUNT] [c/CATEGORY_NUMBER] [i/INTERVAL] [e/
 
 Examples:
 
-- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at $15: `editR n/Textbook d/2012-09-21 a/15`
-- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
+- Edit a recurring entry with description of "Textbook" recorded on 21 September 2012 at
+  $15: `editR n/Textbook d/2012-09-21 a/15`
+- Edit a recurring entry with description of "Cheese Burger" recorded on 20 April 2020 at
+  $4.20: `editR n/Cheese Burger d/2020-04-20 a/4.2`
 
 Examples and Expected Output:
 
@@ -714,19 +729,20 @@ c/7 OTHERS         | c/7 OTHERS
 
 ## <a name="set"></a>Setting budget: `set`
 
-Set budget for individual categories>
+Set budget for individual categories.
 
-Format: `set c/CATEGORY_NUMBER a/AMOUNT`
+Format: `set c/CATEGORY_NUMBER a/AMOUNT`.
 
 - `set` takes in 2 mandatory fields, `c/CATEGORY_NUMBER` and `a/AMOUNT`.
 - `AMOUNT` is in dollars. Numbers after the decimal point are in cents. Eg. 4.50 is $4.50.
 - `CATEGORY_NUMBER` is any integer from 0 to 7. Please refer to the [available categories](#categoryList).
 
-Example: If you want to set budget for "FOOD" to $100, type `set c/0 a/100`, as `c/0` correspond to "FOOD".
+Example and Expected Output:
 
-Expected Output:
+- If you want to set budget for "FOOD" to $100: `set c/0 a/100`, as `0` is the category number for "FOOD"
 
 ```
+set c/0 a/100
 Budget for FOOD set to $100.00
 ```
 
@@ -734,13 +750,14 @@ Budget for FOOD set to $100.00
 
 ## <a name="budget"></a>View monthly budget: `budget`
 
-View monthly spending and budget for current month
+View your monthly spending and budget for the current month.
 
 Format: `budget`
 
-Expected Output:
+Example and Expected Output:
 
 ```
+budget
 Here is the budget for NOVEMBER 2021
    Category    | Amount | Budget  | Percentage
      FOOD      |  $5.00 / $100.00 | 5.00%
@@ -798,23 +815,4 @@ Please refresh page if table is not rendered properly.
   `DATE` as `2021-11-04` and `END_DATE` as `2021-11-15`)?
     - This is so that users can use the `END_DATE` as a reminder to themselves to cancel subscriptions or be aware of
       the end of receiving fixed incomes.
-
-- Why does simply entering `view` without date options show all the normal entries for recurring entries only up to
-  today's date in the entries' list?
-    - This is because if users do not specify the `END_DATE`, default is set to `2200-12-31`(forever). Thus, if we show
-      all the recurring entries that are added, recurring entries with `END_DATE` set as forever will show all recurring
-      until `2200-12-31` which would hinder the users from viewing important, recent entries.
-
-- Why does simply entering `view` show recurring entries that are not added to the entries' list still shown in the
-  separate list, but specifying filter options like `view month 12` only show entries that are added to the entries'
-  list in the separate list?
-    - This is because users may have recurring entries that start in the future. Only entering `view` without filter
-      options show recurring entries up to today's date. Thus, if only the entries that are added to the entries' list
-      are shown in the separate list, recurring entries that have not started yet would never be shown in the separate
-      list, and users will not be able to see those that start in the future unless they specify to view those
-      dates. `view` is meant to be a simple tool to view all entries, including recurring entries.
-
-![](images/FAQrecurring.PNG)
-
-This image explains what the entries' list and separate list indicate.
   
