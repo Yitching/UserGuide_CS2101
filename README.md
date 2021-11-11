@@ -321,10 +321,10 @@ Format: `view [income] [expense] [by SORTTYPE] [month MONTH] [year YEAR] [from S
 
 | Modifier | Effect | Remarks
 |--------|----------|----------|
-| `by date` | Sorts the list by date. | The default sorting order
-| `by amount` | Sorts the list by date. |
-| `by name` | Sorts the list by date. |
-| `by cat` | Sorts the list by date. |
+| `by date` | Sorts the list by date in descending order. | The default sorting order
+| `by amount` | Sorts the list by amount in descending order. |
+| `by name` | Sorts the list by name in descending order. |
+| `by cat` | Sorts the list by category in descending order. |
 | `from [STARTDATE]` | Filters for entries that are on or after the STARTDATE. |
 | `from [STARTDATE] [ENDDATE]` | Filters for entires entries that are between STARTDATE and ENDDATE, inclusive. |
 | `month [MONTH]` | Filters for entries of the specified MONTH in a year. | If the year modifier was not used, it will default to the current year. If MONTH was not specified, it will default to the current MONTH.
