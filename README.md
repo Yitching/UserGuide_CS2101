@@ -739,7 +739,8 @@ Format: `set c/CATEGORY_NUMBER a/AMOUNT`.
 
 Example and Expected Output:
 
-- If you want to set budget for "FOOD" to $100: `set c/0 a/100`, as `0` is the category number for "FOOD"
+- Set budget for "FOOD" to $100: `set c/0 a/100`
+- `c/0` is the category number for "FOOD"
 
 ```
 set c/0 a/100
@@ -753,6 +754,11 @@ Budget for FOOD set to $100.00
 View your monthly spending and budget for the current month.
 
 Format: `budget`
+
+- Your monthly budget breakdown will be shown on the screen.
+- It shows the categories as well as its corresponding amount spent(on the left) and budget set(on the right).
+- A percentage of (amount spent / budget) will be printed
+
 
 Example and Expected Output:
 
