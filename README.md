@@ -19,9 +19,9 @@ finances. We want to help you get started in your journey to financial freedom.
 The purpose of this guide is to help you to navigate the app and use all of its functionalities through
 step-by-step-instructions.
 
-- If you are a new user, click [here](#quickStart) to get started!
+- If you are a new user, click [here](#quickStart) to get started.
 
-- If you want to find out more about our features, click [here](#features)!
+- If you want to find out more about our features, click [here](#features).
 
 - If you are unsure of where to start, you can refer to our [table of contents](#tableOfContent).
 
