@@ -1,7 +1,3 @@
-# UserGuide_CS2101
-
-Copy of user guide for CS2101
-
 # Mint User Guide v2.1
 
 ## Introduction
@@ -186,8 +182,6 @@ Note:
 
 
 <div style="page-break-after: always;"></div>
-
----
 
 ### <a name="recurringNote"></a> Notes about recurring entries
 
